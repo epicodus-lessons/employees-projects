@@ -1,0 +1,28 @@
+<h2>Employees</h2>
+<hr>
+<br>
+
+<% if @employees == [] %>
+
+<p>There are currently no employees in the database</p>
+
+<% else %>
+
+<p>Current Employees</p>
+<ul>
+
+  <% @employees.each() do |employee| %>
+
+  <li><a href="/employees/<%= employee.id() %>"><%= employee.name() %></a></li>
+
+  <% end %>
+
+</ul>
+
+<% end %>
+<h3> Add an employee: </h3>
+<form action="/employees/new" method="post">
+  <label for="employee_name">Employee Name:  </label>
+  <input type="text" name="employee_name" id="employee_name">
+  <button type="submit">Add Employee</button>
+</form>

@@ -1,0 +1,29 @@
+<h2>Projects</h2>
+<hr>
+<br>
+
+<% if @projects == [] %>
+
+<p>There are currently no projects in the database</p>
+
+<% else %>
+
+<p>Current Projects</p>
+<ul>
+
+  <% @projects.each() do |project| %>
+
+  <li><a href="/projects/<%= project.id() %>"><%= project.name() %></a></li>
+
+  <% end %>
+
+</ul>
+
+<% end %>
+
+<h3> Add a project: </h3>
+<form action="/projects/new" method="post">
+  <label for="project_name">Project Name:  </label>
+  <input type="text" name="project_name" id="project_name">
+  <button type="submit">Add Project Record</button>
+</form>
